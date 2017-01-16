@@ -31,3 +31,4 @@ Route::post('get_parameters','ParametersController@get');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::resource('admin/users', 'AdminUsersController');
