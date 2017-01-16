@@ -89,17 +89,20 @@ class PostsController extends Controller
 
    public function contact()
     {
-        return view('contact');
+        $people=['A', 'B', 'C'];
+        return view('contact', compact('people'));
     }
-    public function show_post($id, $name)
+    public function show_post()
     {
 //        return view('post')->with('id', $id);
-        return view('post', compact('id', 'name'));
+        return view('post');
     }
 
     public function my_html()
     {
         return view('my_html');
     }
+
+
 }
 

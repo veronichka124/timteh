@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Contacts</title>
+@extends('layout.app')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-    </head>
-    <body>
 
-                <h1>Contact page </h1>
+@section ('content')
 
-    </body>
-</html>
+    <h1>contacts</h1>
+
+    @if (count($people))
+        <ul>
+        @foreach($people as $person)
+            <li>{{$person}}</li>
+
+        @endforeach
+
+
+        </ul>
+     @endif
+
+
+    @stop

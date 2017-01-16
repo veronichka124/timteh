@@ -20,7 +20,14 @@ Route::get('/', function () {
 });
 
 Route::resource('posts', 'PostsController');
+//Route::get('contact', 'PostsController@contact');
+//Route::get('/my_html', 'PostsController@my_html');
+Route::get('posts', 'PostsController@show_post');
 
-Route::get('contact', 'PostsController@contact');
-Route::get('/my_html', 'PostsController@my_html');
-Route::get('post/{id}/{name}', 'PostsController@show_post');
+Route::get('additem','ItemsController@add');
+Route::post('additem','ItemsController@save');
+Route::post('get_parameters','ParametersController@get');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
