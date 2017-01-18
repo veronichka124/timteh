@@ -68,11 +68,10 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i> Register
-                                </button>
-                            </div>
+                        {!! Form::submit('Register', [ 'class'=>'btn btn-primary col-sm-4']) !!}
                         </div>
+
+
                     </form>
                 </div>
             </div>

@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id', 'is_active',
     ];
 
     /**
@@ -23,10 +23,26 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-}
 
-    public function(){
+    public function role() {
 
     return $this->belongsTo('App\Role');
 
+    }
+
+//    public function setPasswordAttribute($password){
+//
+//        if(!empty('password')){
+//            $this->attributes['password'] = bcrypt($password);
+//        }
+//    }
+
+
+
+    public function isAdmin()
+    {
+        return $this->role->name == "administrator"; // this looks for an admin column in your users table
+    }
+
 }
+

@@ -89,8 +89,8 @@ class PostsController extends Controller
 
    public function contact()
     {
-        $people=['A', 'B', 'C'];
-        return view('contact', compact('people'));
+
+        return view('contact');
     }
     public function show_post()
     {
@@ -98,11 +98,20 @@ class PostsController extends Controller
         return view('post');
     }
 
-    public function my_html()
+    public function checkout()
     {
-        return view('my_html');
+        return view('cart/checkout');
     }
 
+
+    public function cart()
+    {
+        return view('cart');
+    }
+    public function products()
+    {
+        return view('products');
+    }
 
 }
 

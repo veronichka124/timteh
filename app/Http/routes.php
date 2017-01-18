@@ -19,16 +19,34 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('posts', 'PostsController');
-//Route::get('contact', 'PostsController@contact');
-//Route::get('/my_html', 'PostsController@my_html');
-Route::get('posts', 'PostsController@show_post');
+Route::get('cart/checkout', 'PostsController@checkout');
+Route::get('contact', 'PostsController@contact');
+Route::get('cart', 'PostsController@cart');
+Route::get('products', 'PostsController@products');
 
-Route::get('additem','ItemsController@add');
-Route::post('additem','ItemsController@save');
-Route::post('get_parameters','ParametersController@get');
+//Route::get('admin/create', 'ItemsController@add_item');
+//Route::get('additem','ItemsController@add');
+//Route::post('additem','ItemsController@save');
+//Route::post('get_parameters','ParametersController@get');
 
 Route::auth();
-
 Route::get('/home', 'HomeController@index');
-Route::resource('admin/users', 'AdminUsersController');
+
+
+
+//Route::resource('admin/items', 'ItemsController');
+
+
+Route::group(['middleware'=>'admin'], function(){
+
+    Route::resource('admin/categories', 'AdminCategoriesController');
+    Route::resource('admin/items', 'AdminItemsController');
+
+    Route::resource('admin/users', 'AdminUsersController');
+
+    Route::get('/admin', function(){ return view('admin/index'); });
+
+});
+
+
+

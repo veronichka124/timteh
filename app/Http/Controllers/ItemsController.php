@@ -13,4 +13,8 @@ class ItemsController extends Controller
     {
         return view('add');
     }
+    public function add_item()
+    {
+        return view('admin/categories/create');
+    }
 }
