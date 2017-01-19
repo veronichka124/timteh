@@ -27,6 +27,8 @@ class ItemCreateRequest extends Request
             //
             'title' => 'required',
             'price' => 'required',
+            'description' => 'required',
+
         ];
     }
 }

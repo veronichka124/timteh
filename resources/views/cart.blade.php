@@ -12,7 +12,6 @@
         <!-- Product #1 -->
         <div class="item">
 
-
             <div class="image">
                 <img src="images/prod3.png" alt="" />
             </div>
@@ -23,15 +22,15 @@
                 <span>Brown</span>
             </div>
 
-            <div class="quantity">
-                <button class="plus-btn" type="button" name="button">
-                    <img src="images/plus.svg" alt="" />
-                </button>
-                <input type="text" name="name" value="1">
-                <button class="minus-btn" type="button" name="button">
-                    <img src="images/minus.svg" alt="" />
-                </button>
-            </div>
+            <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+
+
 
             <div class="total-price">$70</div>
         </div>

@@ -8,7 +8,7 @@ class Item extends Model
 {
     //
     protected $fillable = [
-        'title', 'price',
+        'title', 'price', 'description','photo_id','category',
     ];
 
     public function photo(){
@@ -20,4 +20,6 @@ class Item extends Model
 
         return $this->belongsTo('App\Category');
     }
+
+
 }

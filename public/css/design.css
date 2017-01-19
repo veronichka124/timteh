@@ -23,6 +23,7 @@ body {
     background-color: lightpink;
     font-family: 'Roboto', sans-serif;
 }
+
 .shopping-cart {
     width: 750px;
     height: 423px;
@@ -169,5 +170,10 @@ input:focus {
     margin: 40px auto;
 
 }
+
+.form-control{
+    width: 50px;
+}
+
 
 

@@ -28,11 +28,7 @@
         {!! Form::select('is_active', array(1 => 'Active', 0 => 'Not Active'), null,[ 'class'=>'form-control']) !!}
     </div>
 
-    {{--Submit button--}}
 
-    {{--<div class="form-group">--}}
-        {{--{!! Form::submit('Edit User', [ 'class'=>'btn btn-primary col-sm-1']) !!}--}}
-    {{--</div>--}}
 
 
     {!! Form::open(['method'=>'EDIT', 'action'=> ['AdminUsersController@update', $user->id]]) !!}

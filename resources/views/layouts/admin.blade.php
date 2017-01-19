@@ -25,8 +25,6 @@
     <![endif]-->
 
 
-
-
 </head>
 
 <body id="admin-page">
@@ -45,7 +43,6 @@
             <a class="navbar-brand" href="/">Home</a>
         </div>
         <!-- /.navbar-header -->
-
 
 
         <ul class="nav navbar-nav navbar-right">
@@ -298,7 +295,6 @@
 
 
 
-
 <!-- Page Content -->
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -321,13 +317,6 @@
 
 <!-- jQuery -->
 <script src="{{asset('js/libs.js')}}"></script>
-
-
-@yield('footer')
-
-
-
-
 
 </body>
 

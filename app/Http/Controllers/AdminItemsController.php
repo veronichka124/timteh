@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Item;
+use App\Photo;
 use Illuminate\Http\Request;
-use App\Http\Requests\ItemsCreateRequest;
+use App\Http\Requests\ItemCreateRequest;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminItemsController extends Controller
 {
@@ -28,7 +32,8 @@ class AdminItemsController extends Controller
      */
     public function create()
     {
-        return view('admin.items.create');
+        $categories = Category::lists('name', 'id')->all();
+        return view('admin.items.create', compact ('categories'));
     }
 
     /**
@@ -37,10 +42,20 @@ class AdminItemsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ItemsCreateRequest $request)
+    public function store(ItemCreateRequest $request)
     {
-        // Item::create($input);
-        return redirect('/admin/items');
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')){
+
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+        }
+
+        Item::create($input);
     }
 
     /**
@@ -62,7 +77,8 @@ class AdminItemsController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.items.edit');
+        $item = Item::findOrFail($id);
+        return view('admin.items.edit', compact ('item'));
     }
 
     /**
@@ -72,9 +88,23 @@ class AdminItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ItemCreateRequest $request, $id)
     {
         //
+        $item = Item::findOrfail($id);
+        $input = $request->all();
+
+
+        if($file = $request->file('photo_id')){
+
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+        }
+        $item->update($input);
+        return redirect('admin/items');
     }
 
     /**
@@ -86,5 +116,10 @@ class AdminItemsController extends Controller
     public function destroy($id)
     {
         //
+        Item::findOrFail($id)->delete();
+
+        Session::flash('deleted_item', 'The item has been deleted');
+
+        return redirect('/admin/items');
     }
 }
