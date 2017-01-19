@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Http\Requests\CategoriesCreateRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -37,9 +39,12 @@ class AdminCategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriesCreateRequest $request)
     {
         //
+        $input = $request->all();
+        Category::create($input);
+        return redirect('admin/categories');
     }
 
     /**
@@ -71,9 +76,13 @@ class AdminCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoriesCreateRequest $request, $id)
     {
         //
+        $categories = Category::findOrfail($id);
+        $input = $request->all();
+        $categories->update($input);
+        return redirect('admin/categories');
     }
 
     /**

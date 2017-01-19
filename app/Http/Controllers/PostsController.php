@@ -48,8 +48,6 @@ class PostsController extends Controller
     public function show($id)
     {
         //
-
-        return "this is a show method and id is " . $id;
     }
 
     /**
@@ -61,7 +59,6 @@ class PostsController extends Controller
     public function edit($id)
     {
         //
-        return "this is an edit method and id is " . $id;
     }
 
     /**
@@ -94,8 +91,7 @@ class PostsController extends Controller
     }
     public function show_post()
     {
-//        return view('post')->with('id', $id);
-        return view('post');
+        //
     }
 
     public function checkout()

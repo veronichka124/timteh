@@ -5,13 +5,10 @@
 <h1>Categories</h1>
 
 
-    <div class="col-sm-6">
 
 
-    </div>
 
 
-    <div class="col-sm-6">
 
         @if($categories)
 
@@ -20,7 +17,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Created at</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -30,12 +26,11 @@
                     <tr>
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
-                        <td>{{$category->created_at ? $category->created_at ->diffForHumans() : 'no date'}}</td>
                     </tr>
                 @endforeach
             </table>
         @endif
-    </div>
+
 
 
 

@@ -22,13 +22,15 @@
                 <span>Brown</span>
             </div>
 
-            <select>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+            <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                    <img src="images/plus.svg" alt="" />
+                </button>
+                <input type="text" name="name" value="1">
+                <button class="minus-btn" type="button" name="button">
+                    <img src="images/minus.svg" alt="" />
+                </button>
+            </div>
 
 
 
